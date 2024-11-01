@@ -1,0 +1,93 @@
+ :root {
+    --textcolor: #d8d6d6;
+    --linkcolor: #acacac;
+    --linkhover: #606870;
+}
+
+body {
+    background-color: #4a525a;
+    font-family: Verdana, sans-serif;
+    color: var(--textcolor);
+}
+
+a, a:visited {
+    color: var(--linkcolor);
+}
+
+a:hover {
+    background-color: var(--linkhover);
+}
+
+#heading {
+    font-family: 'Trebuchet MS', sans-serif;
+    letter-spacing: -0.1em;
+    color: var(--textcolor);
+    margin: 50px auto 30px 25%;
+}
+
+ul {
+    list-style: none;
+}
+
+#sidebar {
+    width: 40%;
+    height: 100%;
+    margin-top: 50px;
+    float: left;    
+}
+
+#sidebar h6 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidelink {
+    padding: 3px;
+    text-align: right;
+}
+
+.sidelink a {
+    color: var(--textcolor);
+    letter-spacing: 0.2em;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    padding: 50px;
+}
+
+article {
+    line-height: 1.5em;
+    font-size: 0.8em;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    color: var(--textcolor);
+}
+
+.articledate {
+    color:#acacac;
+    letter-spacing: 0.1em;
+    font-weight: lighter;
+    margin-bottom: 50px;
+}
+
+.articleheading {
+    display: inline;
+    letter-spacing: 0.1em;
+    font-size: 0.8em;
+}
+
+.articlelink, .articleheading {
+    text-decoration: underline;
+}
+
+.articleindent {
+    border-left: solid 1px #acacac;
+    margin-left: 5px;
+    padding-left: 8px;
+}
