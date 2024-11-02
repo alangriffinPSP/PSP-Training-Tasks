@@ -1,4 +1,3 @@
-# hello-world
-This repository is for practicing the GitHub Flow
+$ PSP Training Tasks
 
-I am learning about branches in this test repo.
+Here I will log my training tasks as a trainee developer for PetSitterPlus. 
