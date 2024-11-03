@@ -8,3 +8,6 @@ Using HTML and CSS, create a website imitating the layout of an already establis
 ### Task 2 - Make website responsive.
 On smaller devices, allow the user to hide/show sidebar with a button.
 
+### Task 3 - Set up this repo.
+Learn to use Git and set up remote repo on GitHub.
+
