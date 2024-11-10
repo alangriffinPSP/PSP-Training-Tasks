@@ -1,0 +1,138 @@
+:root {
+    --textcolor: #d8d6d6;
+    --linkcolor: #acacac;
+    --linkhover: #606870;
+}
+
+body {
+    background-color: #4a525a;
+    font-family: Verdana, sans-serif;
+    color: var(--textcolor);
+    margin: 0;
+}
+
+a, a:visited {
+    color: var(--linkcolor);
+}
+
+a:hover {
+    background-color: var(--linkhover);
+}
+
+#menutoggle {
+    position: relative;
+    /*nicer solution to hide checkbox?*/
+    top: -9999px;
+    left: -9999px;
+}
+
+#menutoggle ~ label {
+    display: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    background: #49647e;
+    padding: 5px;
+}
+
+#menutoggle:checked ~ label ~ #sidebar {
+    display: block;
+}
+
+#heading {
+    display: block;
+    font-family: 'Trebuchet MS', sans-serif;
+    letter-spacing: -0.1em;
+    color: var(--textcolor);
+    margin: 50px auto 30px 25%;
+}
+
+ul {
+    list-style: none;
+}
+
+#sidebar {
+    display: block;
+    background-color: #4a525a;
+    width: 40%;
+    height: 100vh;
+    margin-top: 50px;
+    float: left;       
+}
+
+#author {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidelink {
+    padding: 3px;
+    text-align: right;
+}
+
+.sidelink a {
+    color: var(--textcolor);
+    letter-spacing: 0.2em;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    padding: 50px;
+}
+
+article {
+    line-height: 1.5em;
+    font-size: 0.8em;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    color: var(--textcolor);
+}
+
+.articledate {
+    color:#acacac;
+    letter-spacing: 0.1em;
+    font-weight: lighter;
+    margin-bottom: 50px;
+}
+
+.articleheading {
+    width: fit-content;
+    letter-spacing: 0.1em;
+    font-size: 0.8em;
+}
+
+.articlelink, .articleheading {
+    text-decoration: underline;
+}
+
+.articleindent {
+    border-left: solid 1px #acacac;
+    margin-left: 5px;
+    padding-left: 8px;
+}
+
+
+@media (max-width: 500px) {
+    #sidebar {
+        display: none;
+        position: absolute;
+        border-right: solid 2px #49647e;
+        border-top: solid 2px #49647e;
+        padding-right: 20px;
+    }
+
+    #menutoggle ~ label {
+        display: block;
+    }
+
+    #author {
+        display: none;
+    }
+}
