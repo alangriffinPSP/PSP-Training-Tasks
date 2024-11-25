@@ -40,9 +40,7 @@ function submitArticle() {
     year:"numeric" 
   });
   
-  //Grab content from input fields
-  const newTitle = document.getElementById('new-title').value;
-  const newArticleContent = document.getElementById('new-article').value;
+
 
   //Create new article group container, set class for styling
   const newGroup = document.createElement('div'); 
