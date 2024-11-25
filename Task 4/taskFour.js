@@ -1,3 +1,7 @@
+function clearForm() {
+  document.getElementById('submission-form').reset();
+}
+
 function themeSet() {
   const checkTheme = document.querySelector('html');
   const currentTheme = checkTheme.getAttribute('data-theme')
@@ -67,5 +71,7 @@ function submitArticle() {
   newGroup.appendChild(emptyArticle);
   newGroup.insertBefore(emptyHeading, emptyArticle);
   newGroup.insertBefore(emptyDate, emptyHeading);
+
+  document.getElementById('submission-form').reset();
 }
 } 
