@@ -27,6 +27,11 @@ function changeTheme() {
 }
 
 function submitArticle() {
+  const newTitle = document.getElementById('new-title').value;
+  const newArticleContent = document.getElementById('new-article').value;
+  
+  //Article is only created if both text fields are populated
+  if (newTitle && newArticleContent != '') {
   //Grabs date in desired format
   const newArticleDate = new Date().toLocaleDateString('en-gb', { 
     weekday:"long", 
@@ -67,3 +72,4 @@ function submitArticle() {
   newGroup.insertBefore(emptyHeading, emptyArticle);
   newGroup.insertBefore(emptyDate, emptyHeading);
 }
+} 
