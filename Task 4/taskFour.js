@@ -40,8 +40,6 @@ function submitArticle() {
     year:"numeric" 
   });
   
-
-
   //Create new article group container, set class for styling
   const newGroup = document.createElement('div'); 
   newGroup.setAttribute('class', 'article-group');
