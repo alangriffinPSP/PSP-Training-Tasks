@@ -72,6 +72,6 @@ function submitArticle() {
   newGroup.insertBefore(emptyHeading, emptyArticle);
   newGroup.insertBefore(emptyDate, emptyHeading);
 
-  document.getElementById('submission-form').reset();
+  clearForm();
 }
 } 
