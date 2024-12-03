@@ -1,3 +1,8 @@
+window.onload = function() {
+  themeSet();
+  clearForm();
+}
+
 function clearForm() {
   document.getElementById('submission-form').reset();
 }
