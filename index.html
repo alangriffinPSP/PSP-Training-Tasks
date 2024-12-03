@@ -196,7 +196,12 @@ article {
 }
 </style>
 <script>
-    function clearForm() {
+  window.onload = function() {
+  themeSet();
+  clearForm();
+}
+
+function clearForm() {
   document.getElementById('submission-form').reset();
 }
 
@@ -276,7 +281,7 @@ function submitArticle() {
 </script>
 <title>Corageous Flameorb</title>
 </head>
-<body onload="themeSet(), clearForm()" id="body">
+<body id="body">
     <button id="theme-change" onclick="changeTheme()"></button>
 	<input type="checkbox" id="menutoggle" />
 		<label for="menutoggle">MENU</label>
