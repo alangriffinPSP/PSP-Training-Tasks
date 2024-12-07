@@ -13,3 +13,6 @@ Allow user to toggle colour themes using JavaScript.
 
 ### Task 4 - Article submission. 
 Create form for user to submit new content. 
+
+### Task 5 - Use jQuery
+Rewrite JavaScript code using jQuery library. 
