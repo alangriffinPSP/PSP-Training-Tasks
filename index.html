@@ -195,94 +195,86 @@ article {
     }
 }
 </style>
+<script	src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-  window.onload = function() {
-  themeSet();
-  clearForm();
+$(document).ready(function(){
+
+//Clear submission form on page load
+$clearForm = function(){
+  $('#submission-form').trigger('reset');
 }
 
-function clearForm() {
-  document.getElementById('submission-form').reset();
-}
-
-function themeSet() {
-  const checkTheme = document.querySelector('html');
-  const currentTheme = checkTheme.getAttribute('data-theme')
-  const buttonMode = document.getElementById('theme-change');
-
-  if(currentTheme === 'dark') {
-    buttonMode.innerHTML = 'LIGHTER';
-  } 
-  else {
-    buttonMode.innerHTML = 'DARKER';
-  }  
-}
-
-function changeTheme() {
-  const element = document.querySelector('html');
-  const buttonMode = document.getElementById('theme-change');
-  const dataTheme = element.getAttribute('data-theme');
-
-  if(dataTheme === 'dark') {
-    element.setAttribute('data-theme', 'light');
-    buttonMode.innerHTML = 'DARKER';
-  } 
-  else {
-    element.setAttribute('data-theme', 'dark');
-    buttonMode.innerHTML = 'LIGHTER';
+//Correctly labels button based on startup theme
+$themeSet = function(){
+  if($('html').attr('data-theme') == 'dark') {
+    $('#theme-change').html('LIGHTER');
+  } else {
+    $('#theme-change').html('DARKER');
   }
 }
 
-function submitArticle() {
-  const newTitle = document.getElementById('new-title').value;
-  const newArticleContent = document.getElementById('new-article').value;
-  
-  //Article is only created if both text fields are populated
-  if (newTitle && newArticleContent != '') {
-  //Grabs date in desired format
-  const newArticleDate = new Date().toLocaleDateString('en-gb', { 
-    weekday:"long", 
-    day:"numeric", 
-    month:"long", 
-    year:"numeric" 
-  });
-  
-  //Create new article group container, set class for styling
-  const newGroup = document.createElement('div'); 
-  newGroup.setAttribute('class', 'article-group');
+//Calls changeTheme function on button click
+$("#theme-change").click(function(){
+  $changeTheme();
+})
 
-  //Creates points for new element insertion
-  const parent = document.getElementById('main');
-  const child = document.getElementsByClassName('article-group')[0];
-  
-  //Inserts new empty div before first article
-  parent.insertBefore(newGroup, child);
-
-  //Prepares empty HTML elements for new group, set classes for styling
-  const emptyDate = document.createElement('h6'); 
-  emptyDate.setAttribute('class', 'article-date');
-  const emptyHeading = document.createElement('a'); 
-  emptyHeading.setAttribute('class', 'article-heading');
-  const emptyArticle = document.createElement('article'); 
-      
-  //Populates new elements
-  emptyDate.textContent = newArticleDate;
-  emptyHeading.textContent = newTitle;
-  emptyArticle.textContent = newArticleContent;
-  
-  //Insert new elements inside new group container in desired order
-  newGroup.appendChild(emptyArticle);
-  newGroup.insertBefore(emptyHeading, emptyArticle);
-  newGroup.insertBefore(emptyDate, emptyHeading);
-
-  clearForm();
+//Function changes data-theme attribute
+$changeTheme = function(){
+  if($('html').attr('data-theme') == 'dark') {
+    ($('html').attr('data-theme', 'light'));
+    $('#theme-change').html('DARKER');    
+  } else {
+    ($('html').attr('data-theme', 'dark'));
+    $('#theme-change').html('LIGHTER');
+  }
 }
-} 
+
+//Calls submitArticle function on button click
+$("#article-submit").click(function(){
+  $submitArticle();
+})
+
+//Function only runs if both fields contain text
+$submitArticle = function(){
+  if($('#new-title').val() && $('#new-article').val() !== ''){
+
+//Creates container for new post elements before previous top article group
+$('.article-group:first').before('<div class="article-group"></div>');
+
+//Creates post elements inside newly created container with classes for styling
+$('.article-group:first').prepend('<h6 class="article-date">DATE</h6>', '<a class="article-heading"></a>', '<article></article');
+
+//Pass content from input fields to relevant new elements
+$('.article-heading:first').prepend($('#new-title').val());
+$('article:first').prepend($('#new-article').val());
+
+//Grabs current date for post(Unsure how to do equivalent with jQuery)
+const newArticleDate = new Date().toLocaleDateString('en-gb', { 
+  weekday:"long", 
+  day:"numeric", 
+  month:"long", 
+  year:"numeric" 
+});
+$('.article-date:first').html(newArticleDate);
+
+//Scrolls to top of page after submission
+$(window).scrollTop(0);
+
+//Clears form on completion
+$clearForm();
+  }
+}
+
+//These functions run when page has loaded
+$clearForm();
+$themeSet(); 
+
+});
 </script>
 <title>Corageous Flameorb</title>
 </head>
 <body id="body">
-    <button id="theme-change" onclick="changeTheme()"></button>
+    <button id="theme-change"></button>
 	<input type="checkbox" id="menutoggle" />
 		<label for="menutoggle">MENU</label>
 	<div id="heading">
@@ -339,7 +331,7 @@ function submitArticle() {
 		<input id="new-title" type="text" placeholder="Enter article title">
         <textarea id="new-article" cols="45" rows="9" placeholder="Enter article content..."></textarea>
         </form>
-		<button id="article-submit" type="submit" onclick="submitArticle()">Submit Article</button>
+		<button id="article-submit" type="submit">Submit Article</button>
 	</div>
 </main>
 </body>
