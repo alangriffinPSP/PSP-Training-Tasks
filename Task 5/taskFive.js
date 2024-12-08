@@ -5,7 +5,7 @@ $clearForm = function(){
   $('#submission-form').trigger('reset');
 }
 
-//Correctly labels button based on startup theme
+//Correctly labels theme button based on startup theme
 $themeSet = function(){
   if($('html').attr('data-theme') == 'dark') {
     $('#theme-change').html('LIGHTER');
@@ -35,21 +35,21 @@ $("#article-submit").click(function(){
   $submitArticle();
 })
 
-//Function only runs if both fields contain text
 $submitArticle = function(){
+  //Function only runs if both fields contain text
   if($('#new-title').val() && $('#new-article').val() !== ''){
 
 //Creates container for new post elements before previous top article group
 $('.article-group:first').before('<div class="article-group"></div>');
 
 //Creates post elements inside newly created container with classes for styling
-$('.article-group:first').prepend('<h6 class="article-date">DATE</h6>', '<a class="article-heading"></a>', '<article></article');
+$('.article-group:first').prepend('<h6 class="article-date"></h6>', '<a class="article-heading"></a>', '<article></article');
 
 //Pass content from input fields to relevant new elements
 $('.article-heading:first').prepend($('#new-title').val());
 $('article:first').prepend($('#new-article').val());
 
-//Grabs current date for post(Unsure how to do equivalent with jQuery)
+//Grabs current date for post
 const newArticleDate = new Date().toLocaleDateString('en-gb', { 
   weekday:"long", 
   day:"numeric", 
@@ -66,7 +66,7 @@ $clearForm();
   }
 }
 
-//These functions run when page has loaded
+//These functions run when HTML has loaded
 $clearForm();
 $themeSet(); 
 
