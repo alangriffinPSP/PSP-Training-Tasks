@@ -17,5 +17,5 @@ Create form for user to submit new content.
 ### Task 5 - Use jQuery
 Rewrite JavaScript code using jQuery library. 
 
-### Task 6 - 
+### Task 6 - Rewrite
 Rewrite functions into methods of objects. Move functions from the Window object. Follow naming convention.
